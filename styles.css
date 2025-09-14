@@ -1,0 +1,624 @@
+/* Общие стили для всего проекта */
+:root {
+    --primary: #3B82F6; /* Soft blue for primary actions */
+    --primary-dark: #2563EB; /* Darker blue for hover states */
+    --secondary: #6B7280; /* Neutral gray for secondary elements */
+    --secondary-dark: #4B5563; /* Darker gray for hover */
+    --danger: #EF4444; /* Soft red for errors and warnings */
+    --danger-dark: #DC2626; /* Darker red for hover */
+    --background: #F9FAFB; /* Light gray background for a clean look */
+    --surface: #FFFFFF; /* Pure white for cards and forms */
+    --text: #1F2937; /* Dark gray for primary text */
+    --text-muted: #6B7280; /* Muted gray for secondary text */
+    --border: #E5E7EB; /* Light gray for borders */
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Базовые стили для body */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 16px;
+    background-color: var(--background);
+    color: var(--text);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Стили для таблиц */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 16px;
+    background-color: var(--surface);
+    box-shadow: var(--shadow);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    border: 1px solid var(--border);
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #F3F4F6;
+    font-weight: 600;
+    color: var(--text);
+}
+
+/* Заголовки */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text);
+    margin: 0 0 16px 0;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 1.875em;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+/* Стили для форм и элементов управления */
+.device-control select, 
+.add-form select,
+.add-form input,
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 0.95em;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 6px 0;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.device-control select:focus, 
+.add-form select:focus,
+.add-form input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+button, 
+input[type="submit"] {
+    background-color: var(--primary);
+    color: var(--surface);
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    width: 100%;
+}
+
+button:hover, 
+input[type="submit"]:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+/* Контейнеры для входа и регистрации */
+.container {
+    display: flex;
+    gap: 16px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 16px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.login-container, .register-container {
+    background: var(--surface);
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 420px;
+}
+
+.error {
+    color: var(--danger);
+    margin-bottom: 12px;
+    font-size: 0.9em;
+    background-color: #FEE2E2;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
+/* Ссылки и кнопки действий */
+.logout, 
+.delete-btn, 
+.sensor-link, 
+.back-link,
+a.btn {
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-size: 0.95em;
+}
+
+.logout, .delete-btn {
+    color: var(--danger);
+}
+
+.logout:hover, .delete-btn:hover {
+    color: var(--danger-dark);
+}
+
+.sensor-link, .back-link, a.btn {
+    color: var(--primary);
+}
+
+.sensor-link:hover, .back-link:hover, a.btn:hover {
+    color: var(--primary-dark);
+}
+
+/* Форма добавления устройства */
+.add-form {
+    margin-bottom: 16px;
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+}
+
+/* Информация о пользователе */
+.user-info {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+}
+
+/* Карточки устройств */
+.device-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 16px;
+}
+
+.device-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+    background: var(--surface);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+}
+
+.card-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.card-body {
+    padding: 16px;
+}
+
+.card-title {
+    margin: 0;
+    font-size: 1.125em;
+    font-weight: 500;
+}
+
+/* Стили для меток и значений */
+.badge {
+    padding: 6px 10px;
+    border-radius: 9999px;
+    font-size: 0.8em;
+    font-weight: 500;
+    color: var(--surface);
+}
+
+.bg-success {
+    background-color: var(--primary);
+}
+
+.bg-danger {
+    background-color: var(--danger);
+}
+
+.bg-info {
+    background-color: var(--secondary);
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+/* Стили для уведомлений */
+.alert {
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+.alert-success {
+    background-color: #DBEAFE;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.alert-danger {
+    background-color: #FEE2E2;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+}
+
+.alert-info {
+    background-color: #E5E7EB;
+    color: var(--secondary);
+    border: 1px solid var(--secondary);
+}
+
+/* Кнопки Bootstrap-подобные */
+.btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.95em;
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    transform: translateY(-1px);
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--surface);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+    color: var(--surface);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-dark);
+}
+
+.btn-outline-primary {
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary);
+    color: var(--surface);
+}
+
+.btn-outline-danger {
+    border: 1px solid var(--danger);
+    color: var(--danger);
+    background-color: transparent;
+}
+
+.btn-outline-danger:hover {
+    background-color: var(--danger);
+    color: var(--surface);
+}
+
+/* Стили для состояния датчика */
+#hallState {
+    font-size: 1.25em;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 6px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+#hallState:not(:empty) {
+    background-color: var(--danger);
+    color: var(--surface);
+}
+
+#hallState:not(:empty):contains("1") {
+    background-color: var(--primary);
+}
+
+#hallState:not(:empty):contains("0") {
+    background-color: var(--secondary);
+}
+
+/* Flex и grid утилиты */
+.d-flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.justify-content-between {
+    justify-content: space-between;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px;
+}
+
+.col-md-4 {
+    flex: 0 0 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.col-md-12 {
+    flex: 0 0 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.mb-3 {
+    margin-bottom: 12px;
+}
+
+.mb-4 {
+    margin-bottom: 16px;
+}
+
+.mt-3 {
+    margin-top: 12px;
+}
+
+.mt-4 {
+    margin-top: 16px;
+}
+
+/* Адаптивность для всех экранов */
+/* Мобильные устройства (до 576px) */
+@media (max-width: 576px) {
+    body {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 1.75em;
+    }
+
+    h2 {
+        font-size: 1.375em;
+    }
+
+    table, th, td {
+        font-size: 0.85em;
+        padding: 8px;
+    }
+
+    .device-control select, 
+    .add-form select,
+    .add-form input,
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        padding: 6px 10px;
+        font-size: 0.9em;
+    }
+
+    button, 
+    input[type="submit"],
+    .btn {
+        padding: 8px 12px;
+        font-size: 0.9em;
+    }
+
+    .login-container, .register-container {
+        padding: 16px;
+        max-width: 100%;
+    }
+
+    .card-header, .card-body {
+        padding: 10px;
+    }
+
+    .card-title {
+        font-size: 1.05em;
+    }
+
+    .row {
+        margin: 0 -6px;
+    }
+
+    .col-md-4, .col-md-12 {
+        padding: 0 6px;
+    }
+
+    #hallState {
+        font-size: 1.1em;
+        padding: 6px 10px;
+    }
+}
+
+/* Планшеты (576px - 768px) */
+@media (min-width: 576px) and (max-width: 768px) {
+    body {
+        padding: 16px;
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 1.875em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .login-container, .register-container {
+        max-width: 48%;
+        padding: 20px;
+    }
+
+    .add-form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .add-form select, .add-form input {
+        width: 48%;
+    }
+
+    .user-info {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .col-md-4 {
+        flex: 0 0 50%;
+    }
+
+    .col-md-12 {
+        flex: 0 0 100%;
+    }
+
+    .row {
+        margin: 0 -8px;
+    }
+
+    .col-md-4, .col-md-12 {
+        padding: 0 8px;
+    }
+}
+
+/* Средние экраны (768px - 992px) */
+@media (min-width: 768px) and (max-width: 992px) {
+    body {
+        padding: 24px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.625em;
+    }
+
+    .container {
+        flex-direction: row;
+        gap: 24px;
+    }
+
+    .login-container, .register-container {
+        max-width: 360px;
+    }
+
+    .add-form {
+        flex-direction: row;
+    }
+
+    .add-form select, .add-form input {
+        width: 32%;
+    }
+
+    .col-md-4 {
+        flex: 0 0 33.3333%;
+    }
+
+    .col-md-12 {
+        flex: 0 0 100%;
+    }
+}
+
+/* Большие экраны (992px - 1200px) */
+@media (min-width: 992px) and (max-width: 1200px) {
+    body {
+        padding: 32px;
+    }
+
+    .login-container, .register-container {
+        max-width: 400px;
+    }
+
+    .add-form select, .add-form input {
+        width: 32%;
+    }
+
+    .col-md-4 {
+        flex: 0 0 33.3333%;
+    }
+}
+
+/* Очень большие экраны (1200px и выше) */
+@media (min-width: 1200px) {
+    body {
+        padding: 40px;
+    }
+
+    h1 {
+        font-size: 2.25em;
+    }
+
+    h2 {
+        font-size: 1.75em;
+    }
+
+    .container {
+        gap: 32px;
+    }
+
+    .login-container, .register-container {
+        max-width: 480px;
+    }
+
+    .add-form select, .add-form input {
+        width: 32%;
+    }
+
+    .col-md-4 {
+        flex: 0 0 33.3333%;
+    }
+
+    .row {
+        margin: 0 -16px;
+    }
+
+    .col-md-4, .col-md-12 {
+        padding: 0 16px;
+    }
+
+    #hallState {
+        font-size: 1.375em;
+        padding: 8px 16px;
+    }
+}
